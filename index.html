@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta name="theme-color" content="#1a1c2c" />
+    <title>Tiny Turbo GP</title>
+    <style>
+      html,
+      body {
+        margin: 0;
+        height: 100%;
+        background: #1a1c2c;
+        overflow: hidden;
+        touch-action: none;
+        user-select: none;
+        -webkit-user-select: none;
+      }
+      #game {
+        position: fixed;
+        inset: 0;
+      }
+      canvas {
+        image-rendering: pixelated;
+        image-rendering: crisp-edges;
+      }
+      #rotate {
+        display: none;
+        position: fixed;
+        top: 16px;
+        left: 16px;
+        right: 16px;
+        padding: 10px 12px;
+        border-radius: 8px;
+        background: #29366f;
+        color: #ffcd75;
+        font: 600 15px/1.3 system-ui, sans-serif;
+        text-align: center;
+        pointer-events: none;
+      }
+      @media (orientation: portrait) and (pointer: coarse) {
+        #rotate {
+          display: block;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="game"></div>
+    <div id="rotate">Turn your phone sideways for a bigger track</div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

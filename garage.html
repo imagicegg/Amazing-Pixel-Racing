@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Tiny Turbo Garage</title>
+    <style>
+      :root {
+        --bg: #1a1c2c;
+        --card: #29366f;
+        --ink: #f4f4f4;
+        --muted: #94b0c2;
+        --accent: #ffcd75;
+        --bad: #e43b44;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        padding: 24px 16px 48px;
+        background: var(--bg);
+        color: var(--ink);
+        font: 14px/1.5 ui-monospace, 'Cascadia Mono', Consolas, monospace;
+      }
+      h1 {
+        margin: 0 0 4px;
+        color: var(--accent);
+        font-size: 22px;
+      }
+      p.lead {
+        margin: 0 0 20px;
+        color: var(--muted);
+        max-width: 760px;
+      }
+      code {
+        color: var(--accent);
+      }
+      .cars {
+        display: grid;
+        gap: 16px;
+        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      }
+      .car {
+        background: var(--card);
+        border: 2px solid #000;
+        border-radius: 6px;
+        padding: 14px;
+      }
+      .car h2 {
+        margin: 0;
+        font-size: 18px;
+        color: var(--accent);
+      }
+      .car .tag {
+        margin: 0 0 10px;
+        color: var(--muted);
+      }
+      .row {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-end;
+        gap: 12px;
+        margin: 8px 0;
+      }
+      .row figure {
+        margin: 0;
+        text-align: center;
+        color: var(--muted);
+        font-size: 11px;
+      }
+      canvas {
+        image-rendering: pixelated;
+        display: block;
+        background: repeating-conic-gradient(#3a4466 0 25%, #333c57 0 50%) 0 0 / 16px 16px;
+        border-radius: 3px;
+      }
+      .stats span {
+        display: inline-block;
+        min-width: 86px;
+        color: var(--muted);
+      }
+      .swatches {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 4px;
+      }
+      .swatches div {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        font-size: 11px;
+        color: var(--muted);
+      }
+      .swatches i {
+        width: 14px;
+        height: 14px;
+        border: 1px solid #000;
+        display: inline-block;
+      }
+      h3 {
+        margin: 28px 0 2px;
+        font-size: 16px;
+      }
+      p.note {
+        margin: 0 0 12px;
+        color: var(--muted);
+      }
+      .car h2 small {
+        color: var(--muted);
+        font-weight: normal;
+      }
+      button.copy {
+        margin-top: 12px;
+        padding: 6px 10px;
+        border: 2px solid #000;
+        border-radius: 4px;
+        background: var(--accent);
+        color: var(--bg);
+        font: inherit;
+        cursor: pointer;
+      }
+      textarea.code {
+        display: block;
+        box-sizing: border-box;
+        width: 100%;
+        margin-top: 8px;
+        padding: 8px;
+        border: 2px solid #000;
+        border-radius: 4px;
+        background: var(--bg);
+        color: var(--ink);
+        font: 12px/1.4 ui-monospace, Consolas, monospace;
+        resize: vertical;
+      }
+      button.copy:focus-visible {
+        outline: 2px solid var(--ink);
+        outline-offset: 2px;
+      }
+      .error {
+        color: #fff;
+        background: var(--bad);
+        padding: 8px;
+        border-radius: 4px;
+        white-space: pre-wrap;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Tiny Turbo Garage</h1>
+    <p class="lead">
+      Live preview of the car designs in <code>src/art/cars.ts</code>. Edit a pixel row, save, and this page reloads.
+      The spinning sprite is exactly what the race uses: 32 rotations generated from your top view, with the eyes
+      following the steering. Cars painted in the game's paint shop appear below the team cars.
+    </p>
+    <div id="garage"></div>
+    <script type="module" src="/src/garage.ts"></script>
+  </body>
+</html>
